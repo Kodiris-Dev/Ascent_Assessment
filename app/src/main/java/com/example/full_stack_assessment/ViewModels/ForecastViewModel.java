@@ -118,7 +118,6 @@ public class ForecastViewModel extends ViewModel {
         //ToDO: Write your own api call
         //The grid url
         String gridString = "gridpoints/"+ gridId + "/" + gridX + "," + gridY + "/forecast";
-        System.out.println(gridString);
 
         Call<Weather> call = weatherApi.createWeatherData(gridString);
 
