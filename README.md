@@ -45,6 +45,9 @@ When you have completed the assessment, email molly@ascentitech.com with the lin
 # Submission
 
 ## Application Screenshots
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](https://...Dark.png)  |  ![](https://...Ocean.png)
   <div justify-content="flex">
 <p align=left>
   <img src="https://raw.githubusercontent.com/Kodiris-Dev/Ascent_Assessment/Xavier/screenshots/Activity1.PNG" height = "500">
