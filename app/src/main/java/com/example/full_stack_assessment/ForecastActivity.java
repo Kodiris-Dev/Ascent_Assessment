@@ -1,6 +1,9 @@
 package com.example.full_stack_assessment;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -9,6 +12,7 @@ import android.widget.TextView;
 import com.example.full_stack_assessment.Data.Forecast.Period;
 import com.example.full_stack_assessment.Data.Forecast.Weather;
 import com.example.full_stack_assessment.Data.IconsProperties;
+import com.example.full_stack_assessment.ViewModels.APIStatus;
 import com.example.full_stack_assessment.ViewModels.ForecastViewModel;
 import com.squareup.picasso.Picasso;
 
@@ -30,9 +34,11 @@ public class ForecastActivity extends AppCompatActivity {
         put("Sunny",R.drawable.ic_sun);
         put("Rain", R.drawable.ic_rain);
         put("Partially Sunny", R.drawable.ic_part_cloud);
+        put("Mostly Sunny", R.drawable.ic_part_cloud);
         put("Partly Cloudy", R.drawable.ic_part_cloud);
         put("Snow",R.drawable.ic_snow);
         put("Cloud",R.drawable.ic_cloud);
+        put("Cloudy",R.drawable.ic_cloud);
     }};
 
     //Method to return HashMap value based on key
@@ -73,23 +79,33 @@ public class ForecastActivity extends AppCompatActivity {
         TextView degreeText = (TextView) findViewById(R.id.text_view_degree);
 //        TextView shortForecast = (TextView) findViewById(R.id.shortF);
         ImageView forecastImg = (ImageView) findViewById(R.id.image_view_forecast);
+        TextView errorText = (TextView) findViewById(R.id.errorMessage);
 
         forecastViewModel.getWeather().observe(this, new Observer<Weather>() {
             @Override
             public void onChanged(Weather weather) {
-                //Initialize forecast period 0 (today)
-                Period todayForecast = weather.getProperties().getPeriods().get(0);
-                //Initialize Icon Object properties
-                IconsProperties iconObj = getIcon(todayForecast.getShortForecast(), todayForecast);
+                try{
+                    //Initialize forecast period 0 (today)
+                    Period todayForecast = weather.getProperties().getPeriods().get(0);
+                    //Initialize Icon Object properties
+                    IconsProperties iconObj = getIcon(todayForecast.getShortForecast(), todayForecast);
 
-                forecastText.setText(todayForecast.getName() + ": ");
-                degreeText.setText(todayForecast.getTemperature().toString() + todayForecast.getTemperatureUnit());
+                    forecastText.setText(todayForecast.getName() + ": ");
+                    degreeText.setText(todayForecast.getTemperature().toString() + todayForecast.getTemperatureUnit());
 //                shortForecast.setText(todayForecast.getShortForecast());
-                if (!iconObj.getUrl()) {
-                    forecastImg.setImageResource(iconObj.getImageResource());
-                } else {
-                    Picasso.get().load(iconObj.getImageUrl()).into(forecastImg);
+                    if (!iconObj.getUrl()) {
+                        forecastImg.setImageResource(iconObj.getImageResource());
+                    } else {
+                        Picasso.get().load(iconObj.getImageUrl()).into(forecastImg);
+                    }
+
+                }catch(Exception e){
+                    forecastText.setText("API ERROR");
+                    forecastText.setTextColor(Color.RED);
+                    errorText.setText(e.toString());
+                    System.out.println(("Error: " + e.toString()));
                 }
+
 
             }
         });

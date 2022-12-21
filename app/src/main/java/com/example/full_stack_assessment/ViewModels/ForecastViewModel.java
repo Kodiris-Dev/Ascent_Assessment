@@ -28,7 +28,12 @@ public class ForecastViewModel extends ViewModel {
 
     private String BASE_URL = "https://api.weather.gov/";
 
-    private final LatLng location = new LatLng(38.8894, -77.0352);
+    //Incorrect coordinates to test api call failure
+//    private final LatLng location = new LatLng(12, -88.24013532344047);
+    //Coordinates provided by template
+    private final LatLng location = new LatLng(40.091135131249494, -88.24013532344047);
+    //Washington DC Coordinates provided by api
+    //private final LatLng location = new LatLng(38.8894,-77.0352);
 
     //Variables used for the final weather GET request
     private String gridId = "";
