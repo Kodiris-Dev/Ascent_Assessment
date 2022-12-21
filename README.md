@@ -45,22 +45,10 @@ When you have completed the assessment, email molly@ascentitech.com with the lin
 # Submission
 
 ## Application Screenshots
-Solarized dark             |  Solarized Ocean
-:-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/Kodiris-Dev/Ascent_Assessment/Xavier/screenshots/Activity1.PNG)  |  ![](https://...Ocean.png)
-  <div justify-content="flex">
-<p align=left>
-  <img src="https://raw.githubusercontent.com/Kodiris-Dev/Ascent_Assessment/Xavier/screenshots/Activity1.PNG" height = "500">
-</p>
+Home Page                  |  Forecast Page            |  API Error
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://raw.githubusercontent.com/Kodiris-Dev/Ascent_Assessment/Xavier/screenshots/Activity1.PNG)  |  ![](https://raw.githubusercontent.com/Kodiris-Dev/Ascent_Assessment/Xavier/screenshots/Activity2.PNG)  |  ![](https://raw.githubusercontent.com/Kodiris-Dev/Ascent_Assessment/Xavier/screenshots/Activity2Error.PNG) 
 
-<p align=center>
-  <img src="https://raw.githubusercontent.com/Kodiris-Dev/Ascent_Assessment/Xavier/screenshots/Activity2.PNG" height = "500">
-</p>
-
-<p align=right>
-  <img src="https://raw.githubusercontent.com/Kodiris-Dev/Ascent_Assessment/Xavier/screenshots/Activity2Error.PNG" height = "500">
-</p>
-  </div>
 
 ## Modifications and Notes
 
