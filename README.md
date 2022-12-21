@@ -45,7 +45,7 @@ When you have completed the assessment, email molly@ascentitech.com with the lin
 # Submission
 
 ## Application Screenshots
-
+  <div>
 <p align=left>
   <img src="https://raw.githubusercontent.com/Kodiris-Dev/Ascent_Assessment/Xavier/screenshots/Activity1.PNG" height = "500">
 </p>
@@ -57,6 +57,7 @@ When you have completed the assessment, email molly@ascentitech.com with the lin
 <p align=right>
   <img src="https://raw.githubusercontent.com/Kodiris-Dev/Ascent_Assessment/Xavier/screenshots/Activity2Error.PNG" height = "500">
 </p>
+  </div>
 
 ## Modifications and Notes
 
