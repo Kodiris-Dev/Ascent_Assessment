@@ -46,6 +46,18 @@ When you have completed the assessment, email molly@ascentitech.com with the lin
 
 ## Application Screenshots
 
+<p align=center>
+  <img src="https://raw.githubusercontent.com/Kodiris-Dev/Ascent_Assessment/Xavier/screenshots/Activity1.PNG" height = "500">
+</p>
+
+<p align=center>
+  <img src="https://raw.githubusercontent.com/Kodiris-Dev/Ascent_Assessment/Xavier/screenshots/Activity2.PNG" height = "500">
+</p>
+
+<p align=center>
+  <img src="https://raw.githubusercontent.com/Kodiris-Dev/Ascent_Assessment/Xavier/screenshots/Activity2Error.PNG" height = "500">
+</p>
+
 ## Modifications and Notes
 
 After the first round interview with Erin Motley, I spent a few hours every day for a week reviewing Android Studio and Java full stack software engineering since the bulk of my experience
