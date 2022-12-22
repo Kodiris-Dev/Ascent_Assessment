@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel;
 import com.example.full_stack_assessment.Data.Forecast.Weather;
 import com.example.full_stack_assessment.Data.Grid.GridCall;
 import com.example.full_stack_assessment.DataSource.WeatherApi;
+import com.example.full_stack_assessment.ForecastActivity;
 import com.google.android.gms.maps.model.LatLng;
 
 import retrofit2.Call;
@@ -27,12 +28,25 @@ public class ForecastViewModel extends ViewModel {
 
     private String BASE_URL = "https://api.weather.gov/";
 
+    //Incorrect coordinates to test api call failure
+//    private final LatLng location = new LatLng(12, -88.24013532344047);
+    //Coordinates provided by template
     private final LatLng location = new LatLng(40.091135131249494, -88.24013532344047);
+    //Washington DC Coordinates provided by api
+    //private final LatLng location = new LatLng(38.8894,-77.0352);
 
     //Variables used for the final weather GET request
     private String gridId = "";
     private int gridX;
     private int gridY;
+
+    //Create LiveData variable and getWeather method to send data to activity
+    private MutableLiveData<Weather> liveWeatherCall = new MutableLiveData<>();
+
+    public LiveData<Weather> getWeather() {
+        return liveWeatherCall;
+    }
+
 
     //Network status holder
     private MutableLiveData<APIStatus> _status = new MutableLiveData<>();
@@ -54,7 +68,7 @@ public class ForecastViewModel extends ViewModel {
 
     public void makeGridApiCall(){
         _status.postValue(APIStatus.LOADING);
-
+        System.out.println("Making GridAPICall");
         try{
             getGridProperties();
 
@@ -107,6 +121,29 @@ public class ForecastViewModel extends ViewModel {
      */
     private void getWeatherProperties(){
         //ToDO: Write your own api call
+        //The grid url
+        String gridString = "gridpoints/"+ gridId + "/" + gridX + "," + gridY + "/forecast";
+
+        Call<Weather> call = weatherApi.createWeatherData(gridString);
+
+        call.enqueue(new Callback<Weather>(){
+            @Override
+            public void onResponse(Call<Weather> call, Response<Weather> response) {
+
+                //Put response into weather object
+                Weather weather = response.body();
+
+                //Store weather object in live data for use in activity
+                liveWeatherCall.postValue((weather));
+
+            }
+
+            @Override
+            public void onFailure(Call<Weather> call, Throwable t) {
+                Log.e("Forecast ViewModel Weather Call",t.toString());
+                _status.postValue(APIStatus.ERROR);
+            }
+        });
     }
 }
 
