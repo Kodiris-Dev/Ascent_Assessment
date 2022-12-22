@@ -83,7 +83,7 @@ the changes happening to the object in the Activity, setting the UI elements tha
 re rendering UI elements to display the information. 
 
     The second task that took longer than most was manipulating the UI in order to create layouts that imitated what was given in the assessment. The layouts have changed since I previously
-used android studio changed and required some tinkering around through trial and error to achieve the look and feel that I wanted. As seen in the submission, there were still some small details
+used android studio and required some tinkering around through trial and error to achieve the look and feel that I wanted. As seen in the submission, there were still some small details
 that I didn't get right, such as some visible corners in the MainActivity transparent card. 
 
 2) Were there any tasks that you initially did not know how to complete? And if so, how did you approach them and take the steps to learn how to complete them? (It’s okay if the answer is yes! Everyone learns on the job at some point)
